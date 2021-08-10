@@ -1,16 +1,12 @@
-import math
-# Assign values to x and n
-x = 4
-n = 3
+import pytest
 
-# Method 1
-power = x ** n
-print("%d to the power %d is %d" % (x,n,power))
+@pytest.fixture
+def input_value():
+   input = 39
+   return input
 
-# Method 2
-power = pow(x,n)
-print("%d to the power %d is %d" % (x,n,power))
+def test_divisible_by_3(input_value):
+   assert input_value % 3 == 0
 
-# Method 3
-power = math.pow(2,6.5)
-print("%d to the power %d is %5.2f" % (x,n,power))
+def test_divisible_by_6(input_value):
+   assert input_value % 6 == 0
