@@ -1,6 +1,8 @@
 import pytest
 import requests
 import json
+import allure
+
 
 def test_login_valid(supply_url):
 	url = supply_url + "/login/" 
@@ -10,6 +12,7 @@ def test_login_valid(supply_url):
 	assert resp.status_code == 200, resp.text
 	assert j['token'] == "QpwL5tke4Pnpja7X4", resp.text
 
+
 def test_login_no_password(supply_url):
 	url = supply_url + "/login/" 
 	data = {'email':'test@test.com'}
@@ -17,6 +20,7 @@ def test_login_no_password(supply_url):
 	j = json.loads(resp.text)
 	assert resp.status_code == 400, resp.text
 	assert j['error'] == "Missing password", resp.text
+
 
 def test_login_no_email(supply_url):
 	url = supply_url + "/login/" 

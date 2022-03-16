@@ -1,6 +1,8 @@
 import pytest
 import requests
 import json
+import allure
+
 @pytest.mark.parametrize("userid, firstname",[(1,"George"),(2,"Janet")])
 def test_list_valid_user(supply_url,userid,firstname):
 	url = supply_url + "/users/" + str(userid)
